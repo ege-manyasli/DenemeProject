@@ -1,0 +1,106 @@
+﻿@using DenemeProject.Models;
+@model MusteriKayit
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üyelik Formu</title>
+    <!-- Bootstrap CSS -->
+    <!-- Custom styles -->
+    <style>
+        body {
+            background-color: #F8F8FF;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Müşteri Kayıt Formu</h1>
+
+        <form asp-action="UserInformation" asp-controller="Account" method="post">
+            <div class="mb-3">
+                <label for="ad" class="form-label">Adınız:</label>
+                <input type="name" asp-for="Ad" class="form-control" id="ad" name="ad" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="soyad" class="form-label">Soyadınız:</label>
+                <input type="soyad" asp-for="Soyad" class="form-control" id="soyad" name="soyad" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="yas" class="form-label">Yaşınız:</label>
+                <input type="yas" asp-for="Yas" class="form-control" id="age" name="age" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="cinsiyet">Cinsiyet:</label>
+                <select class="form-select" asp-for="Cinsiyet" id="cinsiyet" name="cinsiyet" required>
+                    <option value="">Seçiniz</option>
+                    <option value="erkek">Erkek</option>
+                    <option value="kadin">Kadın</option>
+                    <option value="diger">Diğer</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="dogumTarihi">Doğum Tarihi:</label>
+                <input type="date" asp-for="DogumTarihi" class="form-control" id="dogumTarihi" name="dogumTarihi" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="meslek" class="form-label">Mesleğiniz:</label>
+                <input type="meslek" asp-for="Meslek" class="form-control" id="soyad" name="soyad" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="mezokul" class="form-label">Mezun Olduğunuz Okul:</label>
+                <input type="mezokul" asp-for="MezunOlduguOkul" class="form-control" id="soyad" name="soyad" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="tel" class="form-label">Telefon:</label>
+                <input type="telefon" asp-for="Telefon" class="form-control" id="soyad" name="soyad" required>
+            </div>
+
+            
+
+            <div class="mb-3">
+                <label for="Şehir">Şehir:</label>
+                <input type="sehir" class="form-control" asp-for="Sehir" id="sehir" name="sehir" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="adres">Adres:</label>
+                <textarea class="form-control" asp-for="Adres" id="adres" name="adres" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+            <br />
+            <br />
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["Message"]
+                </div>
+            }
+            <br />
+            <br />
+        </form>
+        <div style="height: 100px;">
+        </div>
+    </div>
+
+    </>
+</body>
+</html>

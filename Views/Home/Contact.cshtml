@@ -1,0 +1,53 @@
+﻿@using DenemeProject.Models;
+@model Contact;
+
+<br />
+<br />
+<div class="container mt-5">
+    <h2 class="mb-4">İletişim Formu</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-action="Contact" asp-controller="Home" method="post">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Adınız</label>
+                    <input type="name" asp-for="Ad" class="form-control" id="name" placeholder="Adınızı giriniz">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-posta Adresiniz</label>
+                    <input type="email" asp-for="Email"class="form-control" id="email" placeholder="E-posta adresinizi giriniz">
+                </div>
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Konu</label>
+                    <input type="konu" asp-for="Konu" class="form-control" id="subject" placeholder="Mesajınızın konusunu giriniz">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Mesajınız</label>
+                    <textarea class="form-control" asp-for="Mesaj" id="message" rows="3" placeholder="Mesajınızı buraya yazınız"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Gönder</button>
+                <br />
+                <br />
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+                <br />
+                <br />
+                <br />
+            </form>
+        </div>  
+        <div class="col-md-4">
+            <br />
+            
+            <h4>İletişim Bilgileri</h4>
+            <p><strong>Adres:</strong> Örnek Mahallesi, Örnek Sokak No:1, İstanbul</p>
+            <p><strong>Telefon:</strong> (0212) 123 45 67</p>
+            <p><strong>E-posta:</strong> info@ornek.com</p>
+        </div>
+    </div>
+</div>
+
+
